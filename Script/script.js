@@ -2,6 +2,7 @@ const heading = document.getElementById("weather-heading");
 const text = "Weather app";
 let index = 0;
 
+// Function to style the company name
 function animateText() {
   if (index < text.length) {
     // Create a span element for each letter and apply the fade-in class
@@ -9,23 +10,20 @@ function animateText() {
     letter.textContent = text[index];
     letter.classList.add("fade-in");
     heading.appendChild(letter);
-
     index++;
-
     // Call animateText recursively for the next letter
     setTimeout(animateText, 1000); // Adjust the delay as needed
   } else {
     // All letters have been animated, clear the content and start over
     setTimeout(() => {
-      heading.innerHTML = ""; // Clear the content
+      heading.innerHTML = "";
       index = 0;
       animateText(); // Start the animation from the beginning
     }, 1000); // Adjust the delay before starting the animation again
   }
 }
 
-// Start the animation
-animateText();
+animateText(); // Start the animation
 
 const temp = document.getElementById("temp"),
   date = document.getElementById("date-time"),
